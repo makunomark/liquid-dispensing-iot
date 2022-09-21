@@ -27,8 +27,10 @@ const Container = styled.div`
   margin: 0 10%;
 `;
 
-const DrinkText = styled.p`
-  font-size: 66px;
+const HeaderText = styled.p`
+  width: "100%";
+  text-align: center;
+  font-size: 33px;
 `;
 
 const BackButton = styled.img`
@@ -43,6 +45,19 @@ const BackButtonContainer = styled.div`
   width: 100%;
   height: 50px;
 `;
+
+export default function ChooseDrink() {
+  const title = "Choose Drink";
+  return (
+    <Container>
+      <HeaderText>{title}</HeaderText>
+      <Bubble />
+      <BackButtonContainer>
+        <BackButton src={UpArrow} />
+      </BackButtonContainer>
+    </Container>
+  );
+}
 
 const Bubble = () => {
   const options = {
@@ -92,6 +107,7 @@ const Bubble = () => {
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
     `;
 
     const Image = styled.img`
@@ -114,15 +130,3 @@ const Bubble = () => {
     </BubbleUI>
   );
 };
-
-export default function ChooseDrink() {
-  return (
-    <Container>
-      <DrinkText>Choose Drink</DrinkText>
-      <Bubble />
-      <BackButtonContainer>
-        <BackButton src={UpArrow} />
-      </BackButtonContainer>
-    </Container>
-  );
-}
