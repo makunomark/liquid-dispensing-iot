@@ -38,7 +38,7 @@ export default function Landing() {
   const navigate = useNavigate();
 
   function onTouchToStart() {
-    navigate("/qr");
+    navigate("/liquid");
   }
 
   return (

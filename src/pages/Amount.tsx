@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import BackButton from "../components/BackButton";
 import Header from "../components/Header";
+import { useNavigate } from "react-router-dom";
 
 import "../fonts/InriaSans-Regular.ttf";
 
@@ -27,10 +28,18 @@ const AmountContainer = styled.div`
 `;
 
 const Amounts = () => {
+  const navigate = useNavigate();
+
+  function onAmountSelected() {
+    navigate("/qr");
+  }
+
   return (
     <>
       {[100, 200, 300, 400, 500].map((amount, i) => (
-        <AmountContainer key={i}>{amount}</AmountContainer>
+        <AmountContainer key={i} onClick={onAmountSelected}>
+          {amount}
+        </AmountContainer>
       ))}
     </>
   );

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CircularButton from "../components/CircularButton";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -9,8 +10,10 @@ const Container = styled.div`
 `;
 
 export default function Pour() {
+  const navigate = useNavigate();
+
   function onClick() {
-    console.log("Call pour function");
+    navigate("/enjoy");
   }
 
   return (

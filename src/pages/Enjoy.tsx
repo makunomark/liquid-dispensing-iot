@@ -1,5 +1,7 @@
 import Confetti from "react-confetti";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const ConfettiContainer = styled.div`
   position: absolute;
@@ -19,6 +21,14 @@ const EnjoyText = styled.h1`
 `;
 
 export default function Enjoy() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setTimeout(() => {
+      navigate("/");
+    }, 5_000);
+  });
+
   return (
     <>
       <ConfettiContainer>
