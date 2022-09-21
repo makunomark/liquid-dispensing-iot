@@ -6,6 +6,8 @@ import Fanta from "../assets/fanta.svg";
 import MountainDew from "../assets/mountain_dew.svg";
 import Sprite from "../assets/sprite.svg";
 
+import { useNavigate, NavigateFunction } from "react-router-dom";
+
 import "../fonts/InriaSans-Regular.ttf";
 
 import "./styles.css";
@@ -29,16 +31,18 @@ const Container = styled.div`
 `;
 
 export default function ChooseDrink() {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <Header title="Choose Drink" />
-      <Bubble />
+      <Bubble navigate={navigate} />
       <BackButton />
     </Container>
   );
 }
 
-const Bubble = () => {
+const Bubble = ({ navigate }: { navigate: NavigateFunction }) => {
   const options = {
     size: 100,
     minSize: 100,
@@ -94,8 +98,12 @@ const Bubble = () => {
       height: 60px;
     `;
 
+    function onSelectDrink() {
+      navigate("/amount");
+    }
+
     return (
-      <Container>
+      <Container onClick={onSelectDrink}>
         <Image src={data.logo} />
       </Container>
     );
