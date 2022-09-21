@@ -34,7 +34,7 @@ const DrinkText = styled.p`
 
 const BackButton = styled.img`
   width: 58px;
-  height: 58px;
+  height: 38px;
   border-radius: 15px;
   background-color: rgb(119, 234, 144, 40%);
 `;
