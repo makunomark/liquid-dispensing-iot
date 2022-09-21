@@ -1,8 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { RouteComponentProps } from "@reach/router";
 
-function App() {
+function App(props: RouteComponentProps) {
   return (
     <div className="App">
       <header className="App-header">
