@@ -9,6 +9,7 @@ import Payment from "./pages/Payment";
 import Landing from "./pages/Landing";
 import Layout from "./components/Layout";
 import Pour from "./pages/Pour";
+import Enjoy from "./pages/Enjoy";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -19,8 +20,9 @@ root.render(
     <Layout>
       <Router>
         <Landing path="/" />
-        <Payment path="/payment" />
-        <Pour path="/pour" />
+        <Payment path="payment" />
+        <Pour path="pour" />
+        <Enjoy path="enjoy" />
       </Router>
     </Layout>
   </React.StrictMode>
