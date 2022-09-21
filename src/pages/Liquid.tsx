@@ -5,13 +5,13 @@ import Dasani from "../assets/dasani.svg";
 import Fanta from "../assets/fanta.svg";
 import MountainDew from "../assets/mountain_dew.svg";
 import Sprite from "../assets/sprite.svg";
-import UpArrow from "../assets/up_arrow.svg";
 
 import "../fonts/InriaSans-Regular.ttf";
 
 import "./styles.css";
 
 import "react-bubble-ui/dist/index.css";
+import BackButton from "../components/BackButton";
 import Header from "../components/Header";
 
 type Data = {
@@ -28,27 +28,12 @@ const Container = styled.div`
   margin: 0 10%;
 `;
 
-const BackButton = styled.img`
-  width: 58px;
-  height: 38px;
-  border-radius: 15px;
-  background-color: rgb(119, 234, 144, 40%);
-`;
-
-const BackButtonContainer = styled.div`
-  display: flex;
-  width: 100%;
-  height: 50px;
-`;
-
 export default function ChooseDrink() {
   return (
     <Container>
       <Header title="Choose Drink" />
       <Bubble />
-      <BackButtonContainer>
-        <BackButton src={UpArrow} />
-      </BackButtonContainer>
+      <BackButton />
     </Container>
   );
 }
