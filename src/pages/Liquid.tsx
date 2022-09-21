@@ -44,7 +44,7 @@ export default function ChooseDrink() {
 
 const Bubble = ({ navigate }: { navigate: NavigateFunction }) => {
   const options = {
-    size: 100,
+    size: 200,
     minSize: 100,
     gutter: 20,
     provideProps: true,
