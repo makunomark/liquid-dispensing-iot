@@ -48,8 +48,8 @@ const BackButtonContainer = styled.div`
 const Bubble = () => {
   const options = {
     size: 100,
-    minSize: 50,
-    gutter: 30,
+    minSize: 70,
+    gutter: 20,
     provideProps: true,
     numCols: 3,
     fringeWidth: 45,
