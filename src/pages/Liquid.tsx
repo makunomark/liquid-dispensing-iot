@@ -1,6 +1,5 @@
-import styled from "styled-components";
 import BubbleUI from "react-bubble-ui";
-import UpArrow from "../assets/up_arrow.svg";
+import styled from "styled-components";
 import CocaCola from "../assets/coca_cola.svg";
 import Dasani from "../assets/dasani.svg";
 import Fanta from "../assets/fanta.svg";
@@ -12,6 +11,8 @@ import "../fonts/InriaSans-Regular.ttf";
 import "./styles.css";
 
 import "react-bubble-ui/dist/index.css";
+import BackButton from "../components/BackButton";
+import Header from "../components/Header";
 
 type Data = {
   name: String;
@@ -27,34 +28,12 @@ const Container = styled.div`
   margin: 0 10%;
 `;
 
-const HeaderText = styled.p`
-  width: "100%";
-  text-align: center;
-  font-size: 33px;
-`;
-
-const BackButton = styled.img`
-  width: 58px;
-  height: 38px;
-  border-radius: 15px;
-  background-color: rgb(119, 234, 144, 40%);
-`;
-
-const BackButtonContainer = styled.div`
-  display: flex;
-  width: 100%;
-  height: 50px;
-`;
-
 export default function ChooseDrink() {
-  const title = "Choose Drink";
   return (
     <Container>
-      <HeaderText>{title}</HeaderText>
+      <Header title="Choose Drink" />
       <Bubble />
-      <BackButtonContainer>
-        <BackButton src={UpArrow} />
-      </BackButtonContainer>
+      <BackButton />
     </Container>
   );
 }

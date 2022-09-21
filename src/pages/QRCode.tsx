@@ -1,5 +1,7 @@
 import { QRCodeSVG } from "qrcode.react";
 import styled from "styled-components";
+import BackButton from "../components/BackButton";
+import Header from "../components/Header";
 
 const MainSection = styled.section`
   width: 100%;
@@ -9,11 +11,6 @@ const MainSection = styled.section`
   align-items: center;
   justify-content: center;
   position: relative;
-`;
-const HeaderText = styled.h3`
-  width: "100%";
-  text-align: center;
-  font-size: 33px;
 `;
 const SubHeaderText = styled.h1`
   width: "100%";
@@ -61,17 +58,10 @@ const SecBg = styled.div`
   position: relative;
 `;
 
-const Backbt = styled.div`
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 20px;
-`;
-
 export default function QRCode() {
   return (
     <MainSection>
-      <HeaderText>Pay</HeaderText>
+      <Header title="Pay" />
       <SubHeader>
         <SubDisplay>Total Pay</SubDisplay>
         <Amount>Ksh. 100000</Amount>
@@ -91,7 +81,7 @@ export default function QRCode() {
           <SecBg></SecBg>
         </MainBg>
       </MainPart>
-      <Backbt>&larr;</Backbt>
+      <BackButton />
     </MainSection>
   );
 }

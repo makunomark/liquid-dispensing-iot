@@ -1,9 +1,10 @@
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
-import "../fonts/InriaSans-Regular.ttf";
 import seatedPerson from "../assets/landing-page-person.svg";
 import CircularButton from "../components/CircularButton";
+import Header from "../components/Header";
+import "../fonts/InriaSans-Regular.ttf";
 
 const Container = styled.div`
   margin-top: 20%;
@@ -19,10 +20,6 @@ const GreenBackground = styled.div`
   height: 40vh;
   margin-left: 10%;
   margin-right: 10%;
-`;
-
-const WelcomeText = styled.p`
-  font-size: 50px;
 `;
 
 const SeatedPersonImg = styled.img`
@@ -41,13 +38,13 @@ export default function Landing() {
   const navigate = useNavigate();
 
   function onTouchToStart() {
-    navigate("/payment");
+    navigate("/qr");
   }
 
   return (
     <Container>
       <GreenBackground>
-        <WelcomeText>Welcome</WelcomeText>
+        <Header title="Welcome" />
         <SeatedPersonImg
           src={seatedPerson}
           height={400}
