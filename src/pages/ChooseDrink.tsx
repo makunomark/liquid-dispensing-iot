@@ -1,4 +1,3 @@
-import { RouteComponentProps } from "@reach/router";
 import styled from "styled-components";
 import BubbleUI from "react-bubble-ui";
 import UpArrow from "../assets/up_arrow.svg";
@@ -116,7 +115,7 @@ const Bubble = () => {
   );
 };
 
-export default function ChooseDrink(props: RouteComponentProps) {
+export default function ChooseDrink() {
   return (
     <Container>
       <DrinkText>Choose Drink</DrinkText>

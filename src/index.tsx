@@ -1,15 +1,38 @@
-import { Router } from "@reach/router";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
-import "./index.css";
-import Landing from "./pages/Landing";
 import Layout from "./components/Layout";
-import Pour from "./pages/Pour";
-import Enjoy from "./pages/Enjoy";
+import "./index.css";
 import ChooseDrink from "./pages/ChooseDrink";
+import Enjoy from "./pages/Enjoy";
+import Landing from "./pages/Landing";
+import Pour from "./pages/Pour";
 import QRCode from "./pages/QRCode";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Landing />,
+  },
+  {
+    path: "/qr",
+    element: <QRCode />,
+  },
+  {
+    path: "/enjoy",
+    element: <Enjoy />,
+  },
+  {
+    path: "/pour",
+    element: <Pour />,
+  },
+  {
+    path: "/choose-drink",
+    element: <ChooseDrink />,
+  },
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -18,13 +41,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Layout>
-      <Router>
-        <Landing path="/" />
-        <Pour path="pour" />
-        <Enjoy path="enjoy" />
-        <ChooseDrink path="choose-drink" />
-        <QRCode path="/qr" />
-      </Router>
+      <RouterProvider router={router} />
     </Layout>
   </React.StrictMode>
 );
