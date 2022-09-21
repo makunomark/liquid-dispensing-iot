@@ -10,6 +10,7 @@ import Landing from "./pages/Landing";
 import Layout from "./components/Layout";
 import Pour from "./pages/Pour";
 import Enjoy from "./pages/Enjoy";
+import ChooseDrink from "./pages/ChooseDrink";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -23,6 +24,7 @@ root.render(
         <Payment path="payment" />
         <Pour path="pour" />
         <Enjoy path="enjoy" />
+        <ChooseDrink path="choose-drink" />
       </Router>
     </Layout>
   </React.StrictMode>
