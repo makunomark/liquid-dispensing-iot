@@ -7,6 +7,7 @@ import "./index.css";
 
 import Payment from "./pages/Payment";
 import Landing from "./pages/Landing";
+import Layout from "./components/Layout";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -14,10 +15,12 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Router>
-      <Landing path="/" />
-      <Payment path="/payment" />
-    </Router>
+    <Layout>
+      <Router>
+        <Landing path="/" />
+        <Payment path="/payment" />
+      </Router>
+    </Layout>
   </React.StrictMode>
 );
 
