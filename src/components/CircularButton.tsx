@@ -49,8 +49,10 @@ export default function CircularButton(props: CircularButtonProps) {
   return (
     <OuterContainer>
       <InnerContainer>
-        <PrimaryText>Touch</PrimaryText>
-        {props.secondaryText && <SecondaryText>To start</SecondaryText>}
+        <PrimaryText>{props.primaryText}</PrimaryText>
+        {props.secondaryText && (
+          <SecondaryText>{props.secondaryText}</SecondaryText>
+        )}
       </InnerContainer>
     </OuterContainer>
   );
