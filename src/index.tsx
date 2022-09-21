@@ -7,7 +7,10 @@ import "./index.css";
 
 import Payment from "./pages/Payment";
 import Landing from "./pages/Landing";
-import { ChooseDrink } from "./pages/ChooseDrink";
+import Layout from "./components/Layout";
+import Pour from "./pages/Pour";
+import Enjoy from "./pages/Enjoy";
+import ChooseDrink from "./pages/ChooseDrink";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -15,11 +18,15 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Router>
-      <Landing path="/land" />
-      <ChooseDrink path="/" />
-      <Payment path="/payment" />
-    </Router>
+    <Layout>
+      <Router>
+        <Landing path="/" />
+        <Payment path="payment" />
+        <Pour path="pour" />
+        <Enjoy path="enjoy" />
+        <ChooseDrink path="choose-drink" />
+      </Router>
+    </Layout>
   </React.StrictMode>
 );
 

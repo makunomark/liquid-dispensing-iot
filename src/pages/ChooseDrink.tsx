@@ -116,7 +116,7 @@ const Bubble = () => {
   );
 };
 
-export const ChooseDrink = (props: RouteComponentProps) => {
+export default function ChooseDrink(props: RouteComponentProps) {
   return (
     <Container>
       <DrinkText>Choose Drink</DrinkText>
@@ -126,4 +126,4 @@ export const ChooseDrink = (props: RouteComponentProps) => {
       </BackButtonContainer>
     </Container>
   );
-};
+}
