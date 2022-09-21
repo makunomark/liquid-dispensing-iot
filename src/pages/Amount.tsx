@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import UpArrow from "../assets/up_arrow.svg";
+import Header from "../components/Header";
 
 import "../fonts/InriaSans-Regular.ttf";
 
@@ -9,12 +10,6 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   margin: 0 10%;
-`;
-
-const Header = styled.p`
-  width: "100%";
-  text-align: center;
-  font-size: 33px;
 `;
 
 const BackButton = styled.img`
@@ -55,10 +50,9 @@ const Amounts = () => {
 };
 
 export default function ChooseDrink() {
-  const title = "Choose Amount";
   return (
     <Container>
-      <Header>{title}</Header>
+      <Header title="Choose Amount" />
       <Amounts />
       <BackButtonContainer>
         <BackButton src={UpArrow} />
