@@ -10,9 +10,17 @@ const Container = styled.div`
 `;
 
 export default function Pour(props: RouteComponentProps) {
+  function onClick() {
+    console.log("Call pour function");
+  }
+
   return (
     <Container>
-      <CircularButton primaryText="Touch" secondaryText="To Pour" />
+      <CircularButton
+        primaryText="Touch"
+        secondaryText="To Pour"
+        onClick={onClick}
+      />
     </Container>
   );
 }
