@@ -43,14 +43,17 @@ const SecondaryText = styled.span`
 type CircularButtonProps = {
   primaryText: string;
   secondaryText?: string;
+  onClick?: () => void;
 };
 
 export default function CircularButton(props: CircularButtonProps) {
   return (
-    <OuterContainer>
+    <OuterContainer onClick={props.onClick}>
       <InnerContainer>
-        <PrimaryText>Touch</PrimaryText>
-        {props.secondaryText && <SecondaryText>To start</SecondaryText>}
+        <PrimaryText>{props.primaryText}</PrimaryText>
+        {props.secondaryText && (
+          <SecondaryText>{props.secondaryText}</SecondaryText>
+        )}
       </InnerContainer>
     </OuterContainer>
   );
