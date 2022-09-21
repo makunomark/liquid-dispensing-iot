@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { Router } from "@reach/router";
 
+import "./index.css";
+
 import Payment from "./pages/Payment";
 import Landing from "./pages/Landing";
 
