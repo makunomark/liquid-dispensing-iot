@@ -27,6 +27,7 @@ const InnerContainer = styled.div`
   animation-name: ${breatheAnimation};
   animation-duration: 8s;
   animation-iteration-count: infinite;
+  cursor: pointer;
 `;
 
 const PrimaryText = styled.span`
