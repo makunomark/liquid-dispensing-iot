@@ -1,4 +1,3 @@
-import { RouteComponentProps } from "@reach/router";
 import Confetti from "react-confetti";
 import styled from "styled-components";
 
@@ -19,7 +18,7 @@ const EnjoyText = styled.h1`
   font-size: 60px;
 `;
 
-export default function Enjoy(props: RouteComponentProps) {
+export default function Enjoy() {
   return (
     <>
       <ConfettiContainer>

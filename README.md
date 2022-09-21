@@ -1,9 +1,10 @@
 # Getting started
+
 - Clone project
-- Install deps `npm install --legacy-peer-deps`
+- Install deps `npm install`
 - Run dev server `npm run start`
 
-# Deployment
+## Deployment
 
 Build app by running `npm run build`. A minified build folder will be created. Start the server using [serve](https://www.npmjs.com/package/serve).
 

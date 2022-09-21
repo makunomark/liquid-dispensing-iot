@@ -1,4 +1,3 @@
-import { RouteComponentProps } from "@reach/router";
 import styled from "styled-components";
 import CircularButton from "../components/CircularButton";
 
@@ -9,7 +8,7 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-export default function Pour(props: RouteComponentProps) {
+export default function Pour() {
   function onClick() {
     console.log("Call pour function");
   }

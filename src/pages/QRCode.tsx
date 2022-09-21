@@ -1,4 +1,3 @@
-import { RouteComponentProps } from "@reach/router";
 import { QRCodeSVG } from "qrcode.react";
 import styled from "styled-components";
 
@@ -69,7 +68,7 @@ const Backbt = styled.div`
   font-size: 20px;
 `;
 
-export default function QRCode(props: RouteComponentProps) {
+export default function QRCode() {
   return (
     <MainSection>
       <HeaderText>Pay</HeaderText>

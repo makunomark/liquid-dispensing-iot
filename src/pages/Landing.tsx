@@ -1,5 +1,5 @@
-import { RouteComponentProps } from "@reach/router";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 import "../fonts/InriaSans-Regular.ttf";
 import seatedPerson from "../assets/landing-page-person.svg";
@@ -37,7 +37,13 @@ const ButtonContainer = styled.div`
   margin-top: 50px;
 `;
 
-export default function Landing(props: RouteComponentProps) {
+export default function Landing() {
+  const navigate = useNavigate();
+
+  function onTouchToStart() {
+    navigate("/payment");
+  }
+
   return (
     <Container>
       <GreenBackground>
@@ -51,7 +57,11 @@ export default function Landing(props: RouteComponentProps) {
       </GreenBackground>
 
       <ButtonContainer>
-        <CircularButton primaryText="Touch" secondaryText="To start" />
+        <CircularButton
+          primaryText="Touch"
+          secondaryText="To start"
+          onClick={onTouchToStart}
+        />
       </ButtonContainer>
     </Container>
   );
