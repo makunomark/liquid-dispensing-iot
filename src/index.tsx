@@ -1,18 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Router } from "@reach/router";
-import { Payment } from "./pages/Payment";
+
+import Payment from "./pages/Payment";
+import Landing from "./pages/Landing";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <Router>
-      <App path="/" />
+      <Landing path="/" />
       <Payment path="/payment" />
     </Router>
   </React.StrictMode>
