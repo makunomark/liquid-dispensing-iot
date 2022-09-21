@@ -5,11 +5,12 @@ import reportWebVitals from "./reportWebVitals";
 
 import Layout from "./components/Layout";
 import "./index.css";
-import ChooseDrink from "./pages/ChooseDrink";
+import Liquid from "./pages/Liquid";
 import Enjoy from "./pages/Enjoy";
 import Landing from "./pages/Landing";
 import Pour from "./pages/Pour";
 import QRCode from "./pages/QRCode";
+import Amount from "./pages/Amount";
 
 const router = createBrowserRouter([
   {
@@ -29,8 +30,12 @@ const router = createBrowserRouter([
     element: <Pour />,
   },
   {
-    path: "/choose-drink",
-    element: <ChooseDrink />,
+    path: "/liquid",
+    element: <Liquid />,
+  },
+  {
+    path: "/amount",
+    element: <Amount />,
   },
 ]);
 
