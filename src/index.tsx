@@ -1,16 +1,15 @@
+import { Router } from "@reach/router";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import { Router } from "@reach/router";
 
 import "./index.css";
-
-import Payment from "./pages/Payment";
 import Landing from "./pages/Landing";
 import Layout from "./components/Layout";
 import Pour from "./pages/Pour";
 import Enjoy from "./pages/Enjoy";
 import ChooseDrink from "./pages/ChooseDrink";
+import QRCode from "./pages/QRCode";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -21,10 +20,10 @@ root.render(
     <Layout>
       <Router>
         <Landing path="/" />
-        <Payment path="payment" />
         <Pour path="pour" />
         <Enjoy path="enjoy" />
         <ChooseDrink path="choose-drink" />
+        <QRCode path="/qr" />
       </Router>
     </Layout>
   </React.StrictMode>
