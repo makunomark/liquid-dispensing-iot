@@ -5,6 +5,7 @@ import Dasani from "../assets/dasani.svg";
 import Fanta from "../assets/fanta.svg";
 import MountainDew from "../assets/mountain_dew.svg";
 import Sprite from "../assets/sprite.svg";
+import Fuel from "../assets/fuel.svg";
 
 import { useNavigate, NavigateFunction } from "react-router-dom";
 
@@ -35,7 +36,7 @@ export default function ChooseDrink() {
 
   return (
     <Container>
-      <Header title="Choose Drink" />
+      <Header title="Select fuel" />
       <Bubble navigate={navigate} />
       <BackButton />
     </Container>
@@ -60,24 +61,20 @@ const Bubble = ({ navigate }: { navigate: NavigateFunction }) => {
 
   const sampleData = [
     {
-      name: "Sprite",
-      logo: Sprite,
+      name: "Kerosene",
+      logo: Fuel,
     },
     {
-      name: "CoCa Cola",
-      logo: CocaCola,
+      name: "Diesel",
+      logo: Fuel,
     },
     {
-      name: "Fanta",
-      logo: Fanta,
+      name: "Petrol",
+      logo: Fuel,
     },
     {
-      name: "Mountain Dew",
-      logo: MountainDew,
-    },
-    {
-      name: "Dasani",
-      logo: Dasani,
+      name: "V-Power",
+      logo: Fuel,
     },
   ];
 
@@ -91,11 +88,17 @@ const Bubble = ({ navigate }: { navigate: NavigateFunction }) => {
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
     `;
 
     const Image = styled.img`
       width: 60px;
       height: 60px;
+    `;
+
+    const FuelName = styled.span`
+      font-size: 20px;
     `;
 
     function onSelectDrink() {
@@ -105,6 +108,7 @@ const Bubble = ({ navigate }: { navigate: NavigateFunction }) => {
     return (
       <Container onClick={onSelectDrink}>
         <Image src={data.logo} />
+        <FuelName>{data.name}</FuelName>
       </Container>
     );
   };

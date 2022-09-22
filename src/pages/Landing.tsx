@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import seatedPerson from "../assets/landing-page-person.svg";
+import seatedPerson from "../assets/vintage_beatle.svg";
 import CircularButton from "../components/CircularButton";
 import Header from "../components/Header";
 import "../fonts/InriaSans-Regular.ttf";
