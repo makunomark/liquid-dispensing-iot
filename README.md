@@ -1,7 +1,7 @@
 # Getting started
 
 - Clone project
-- Install deps `npm install`
+- Install deps `npm install --legacy-peer-deps`
 - Run dev server `npm run start`
 
 ## Deployment
