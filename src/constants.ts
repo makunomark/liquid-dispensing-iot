@@ -1,5 +1,5 @@
 enum Constants {
-  BASE_URL = "http://ddae-105-49-85-117.ngrok.io/",
+  BASE_URL = "http://localhost:8070/",
   API_VERSION = "api/v1/",
   ROUTE_REQUEST_QR = "request_qr",
   ROUTE_QUERY_TRANSACTION = "query_transaction/", //Append uuid
