@@ -35,7 +35,7 @@ export default function Enjoy() {
         <Confetti />
       </ConfettiContainer>
       <Container>
-        <EnjoyText>Enjoy</EnjoyText>
+        <EnjoyText>Drive Safely 🚗💨</EnjoyText>
       </Container>
     </>
   );
