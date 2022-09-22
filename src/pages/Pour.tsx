@@ -2,6 +2,7 @@ import styled from "styled-components";
 import CircularButton from "../components/CircularButton";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Constants from "../constants";
 
 const Container = styled.div`
   display: flex;
@@ -64,7 +65,7 @@ export default function Pour() {
   }
 
   const switchFunction = (value: string) => {
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch(`${Constants.BASE_URL}${Constants.ROUTE_PUMP_ON}`)
       .then((res) => res.json())
       .then((json) => {
         console.log(value, "JSON ===>>>");
