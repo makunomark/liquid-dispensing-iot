@@ -1,10 +1,12 @@
+import { response } from "express";
 import { QRCodeSVG } from "qrcode.react";
 import { useEffect, useState } from "react";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { v4 } from "uuid";
 import BackButton from "../components/BackButton";
 import Header from "../components/Header";
-import { v4 } from "uuid";
-import { useNavigate, NavigateFunction } from "react-router-dom";
+import Constants from "../constants";
 
 const MainSection = styled.section`
   width: 100%;
@@ -66,10 +68,16 @@ function pollPaymentStatus(
   navigate: NavigateFunction,
   counter = 0
 ) {
-  fetch(`https://api.paystack.co/transaction/verify/${uid}`)
+  fetch(`${Constants.BASE_URL}${Constants.ROUTE_QUERY_TRANSACTION}${uid}`)
     .then((res) => res.json())
     .then((res) => {
-      if (counter === 1) navigate("/pour");
+      console.log({ res });
+      //const status = res.response[5];
+      if (counter === 3) {
+        //TODO: change to if (status === "0") {
+        navigate("/pour");
+        return;
+      }
       setTimeout(() => pollPaymentStatus(uid, navigate, ++counter), 3000);
     });
 }
@@ -78,7 +86,7 @@ export default function QRCode() {
   const [qr, setQr] = useState<string | null>(null);
   const request = {
     amount: window.location.search?.split("=")?.[1],
-    uid: v4(),
+    guid: v4(),
   };
   const navigate = useNavigate();
 
@@ -91,12 +99,38 @@ export default function QRCode() {
     },
   };
 
-  fetch(`http://localhost:3000?body=${JSON.stringify(request)}`)
-    //.then((res) => res.json())
-    .then((res) => {
-      setQr("https://example.com");
-      pollPaymentStatus(request.uid, navigate);
-    });
+  type ResponseType = {
+    status: number;
+    response: {
+      qr_code: string;
+      seconds: number;
+    };
+  };
+
+  useEffect(() => {
+    requestQr();
+  }, []);
+
+  function requestQr() {
+    fetch(`${Constants.BASE_URL}${Constants.ROUTE_REQUEST_QR}`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(request),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((response: ResponseType) => {
+        console.log({ response });
+        setQr(response.response.qr_code);
+        setTimeout(() => {
+          pollPaymentStatus(request.guid, navigate);
+        }, 5_000);
+      });
+  }
 
   return (
     <MainSection>
