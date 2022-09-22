@@ -1,7 +1,10 @@
 import { QRCodeSVG } from "qrcode.react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import BackButton from "../components/BackButton";
 import Header from "../components/Header";
+import { v4 } from "uuid";
+import { useNavigate, NavigateFunction } from "react-router-dom";
 
 const MainSection = styled.section`
   width: 100%;
@@ -58,25 +61,59 @@ const SecBg = styled.div`
   position: relative;
 `;
 
+function pollPaymentStatus(
+  uid: string,
+  navigate: NavigateFunction,
+  counter = 0
+) {
+  fetch(`https://api.paystack.co/transaction/verify/${uid}`)
+    .then((res) => res.json())
+    .then((res) => {
+      if (counter === 1) navigate("/pour");
+      setTimeout(() => pollPaymentStatus(uid, navigate, ++counter), 3000);
+    });
+}
+
 export default function QRCode() {
+  const [qr, setQr] = useState<string | null>(null);
+  const request = {
+    amount: window.location.search?.split("=")?.[1],
+    uid: v4(),
+  };
+  const navigate = useNavigate();
+
+  const styles = {
+    common: {
+      height: "80%",
+      width: "100%",
+      position: "absolute" as "absolute",
+      opacity: 1,
+    },
+  };
+
+  fetch(`http://localhost:3000?body=${JSON.stringify(request)}`)
+    //.then((res) => res.json())
+    .then((res) => {
+      setQr("https://example.com");
+      pollPaymentStatus(request.uid, navigate);
+    });
+
   return (
     <MainSection>
       <Header title="Pay" />
       <SubHeader>
         <SubDisplay>Total Pay</SubDisplay>
-        <Amount>Ksh. 100000</Amount>
+        <Amount>Ksh. {request.amount}</Amount>
       </SubHeader>
       <SubHeaderText>Scan to Pay</SubHeaderText>
       <MainPart>
-        <QRCodeSVG
-          value="This is a test"
-          style={{
-            height: "80%",
-            width: "100%",
-            position: "absolute",
-            opacity: 1,
-          }}
-        />
+        {!qr ? (
+          <h3 style={{ ...styles.common, textAlign: "center" }}>
+            Loading . . .
+          </h3>
+        ) : (
+          <QRCodeSVG value={qr} style={styles.common} />
+        )}
         <MainBg>
           <SecBg></SecBg>
         </MainBg>

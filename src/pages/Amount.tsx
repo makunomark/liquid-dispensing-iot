@@ -30,14 +30,14 @@ const AmountContainer = styled.div`
 const Amounts = () => {
   const navigate = useNavigate();
 
-  function onAmountSelected() {
-    navigate("/qr");
+  function onAmountSelected(amount: number) {
+    navigate(`/qr?amount=${amount}`);
   }
 
   return (
     <>
       {[100, 200, 300, 400, 500].map((amount, i) => (
-        <AmountContainer key={i} onClick={onAmountSelected}>
+        <AmountContainer key={i} onClick={() => onAmountSelected(amount)}>
           {amount}
         </AmountContainer>
       ))}
